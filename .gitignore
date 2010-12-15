@@ -1,5 +1,6 @@
 tmp
 log
+secret.rb
 *.sqlite3
 *.sqlite3-journal
 public/assets
