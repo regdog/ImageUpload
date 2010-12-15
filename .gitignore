@@ -1,0 +1,11 @@
+tmp
+log
+db/*.sqlite3
+db/*.sqlite3-journal
+public/assets
+vendor/bundler_gems
+.DS_Store
+*.swp
+*.swo
+Gemfile.lock
+public/system

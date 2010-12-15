@@ -1,0 +1,150 @@
+// @import 'reset'
+
+//Mixins
+
+@mixin leagueGothic
+	font-family: 'League Gothic'
+	line-height: 100%
+	text-rendering: optimizeLegibility
+
+@mixin clear
+	overflow: hidden
+
+@mixin round-corners($radius)
+	-webkit-border-radius: $radius
+	-moz-border-radius: $radius
+	-khtml-border-radius: $radius
+	border-radius: $radius
+	padding: $radius
+	
+@mixin layout($columns, $width, $padding)
+	width: $width/$columns - ($padding)
+	padding-right: $padding 
+	
+@mixin box-shadow($value)
+	-moz-box-shadow: $value  
+	-webkit-box-shadow: $value
+	box-shadow: $value
+
+@mixin letterpress($offset)
+	text-shadow: 0 $offset $offset #FFFFFF
+
+@mixin button($radius)
+	display: block
+	text-align: center
+	@include round-corners($radius)
+	padding: 10px 5px
+
+//Palette
+
+$white: #FFFFFF	
+$light_gray: #F2F2F2
+$light_blue: #B5DCF4
+$mild_gray: #CCCCCC
+$black: #222222
+
+// Global
+
+body 
+	font-family: Helvetica
+	background: $light_blue
+	color: $black
+
+h2
+	margin: 0.5em 0
+
+p.note
+	color: $mild_gray
+	font-size: 0.85em
+
+// Contents
+
+#header
+	width: 960px
+	margin: 0 auto
+
+#upload
+	width: 930px
+	margin: 50px auto
+	background: $light_gray
+	border: 1px solid $mild_gray
+	padding: 15px
+	
+#preview
+	position: relative
+	width: 960px
+	background: $light_gray
+	border: 1px solid $mild_gray
+	margin: 0 auto
+	overflow: hidden
+
+	#edit_panel
+		width: 540px
+		float: left
+		padding: 15px
+		background: $white
+
+		#original
+			position: relative
+
+	#cropped
+		float: left
+		width: 360px
+		padding: 15px
+
+		#preview_container
+			position: relative
+			width: 150px
+			height: 150px
+			border: 1px solid $black
+			background: $white
+			overflow: hidden
+			margin: 50px auto
+			@include box-shadow(rgba(0,0,0,0.2) 2px 2px 1px)
+
+// Form Elements
+
+input.text
+	font-size: 18px
+	height: 1.5em
+	padding: 5px
+	border: 1px solid $mild_gray
+	@include round-corners(5px)
+
+form.save
+	background: $mild_gray
+	margin: 30px 0 0
+	padding: 10px
+	overflow: hidden
+	@include round-corners(5px)
+
+	.button
+		font-family: Helvetica
+		display: block
+		background: $light_gray
+		font-size: 1em
+		@include round-corners(3px)
+		border: 1px solid $white
+		color: $white
+		font-weight: bold
+		text-decoration: none
+		height: 30px
+		padding: 0 10px
+		min-width: 10px
+		&:hover
+			cursor: pointer
+			opacity: 0.6
+
+	.cancel
+		background: $light_gray
+		color: $black
+		float: left
+		width: 54px
+		height: 21px
+		padding-top: 7px
+		text-align: center
+
+	.submit	
+		background: #04BA52
+		float: right
+

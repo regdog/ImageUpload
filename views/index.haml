@@ -1,0 +1,22 @@
+#upload
+	%h1 Upload an image
+	%input{:id => 'file', :type => 'file', :name => 'file'}
+#preview{:style => 'display:none'}
+	#edit_panel
+		#original
+			%h2 Original
+	#cropped
+		%h2 Preview
+		%p.note This is a preview of the item. The size and proportion are accurate representations of the actual iPad game element.
+		#preview_container
+		%form.save{:action => '/result', :method => 'post'}
+			%input.hidden{:type => "hidden", :name => "label" }
+			%input.hidden#x1{:type =>"hidden", :name=> "x1"}
+			%input.hidden#y1{:type =>"hidden", :name=> "y1"}
+			%input.hidden#x2{:type =>"hidden", :name=> "x2"}
+			%input.hidden#y2{:type =>"hidden", :name=> "y2"}
+			%input.hidden#w{:type =>"hidden", :name=> "w"}
+			%input.hidden#h{:type =>"hidden", :name=> "h"}
+			%input.hidden#image{:type => "hidden", :name=>"image"}
+			%a.button.cancel{:href => "#"} Cancel
+			%input.button.submit{:type => "submit", :value => "Save"}
