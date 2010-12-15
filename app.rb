@@ -3,10 +3,12 @@ require 'sinatra'
 require 'datamapper'
 require 'dm-paperclip'
 require 'haml'
+require 'sass'
 require 'json'
 require 'fileutils'
-require "sinatra/reloader" if development?
-require "aws/s3"
+require 'sinatra/reloader' if development?
+require 'aws/s3'
+require 'secret'
 
 APP_ROOT = File.expand_path(File.dirname(__FILE__))
 
@@ -24,8 +26,8 @@ class Image
                     :path => "/:id/:style/:basename.:extension",
                     :storage => :s3,
                     :s3_credentials => {
-                      :access_key_id => 'secret',
-                      :secret_access_key => 'secret',
+                      :access_key_id => @@aws_access,
+                      :secret_access_key => @@aws_secret,
                       :bucket => 'csr_slzr_test'
                     },
                     :styles => {:medium => '400x400>', :thumb => '150x150#'}
