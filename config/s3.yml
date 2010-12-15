@@ -1,4 +1,0 @@
-development: &defaults
-access_key_id: AKIAJDDFBHT3Y4CZVSUQ
-secret_access_key: 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
-bucket: csr_slzr_test
