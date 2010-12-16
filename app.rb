@@ -28,7 +28,7 @@ class Image
                     :s3_credentials => {
                       :access_key_id => @@aws_access,
                       :secret_access_key => @@aws_secret,
-                      :bucket => 'csr_slzr_test'
+                      :bucket => @@bucket
                     },
                     :styles => {:medium => '400x400>', :thumb => '150x150#'}
                     
